@@ -75,11 +75,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     $ git clone git@github.com:datatrans/apple-pay-web-sample.git
     $ cd apple-pay-web-sample
     $ heroku create <your-app-name>
-    $ git remote add heroku https://git.heroku.com/<your-app-name>.git
-    
-
-    
-    
+    $ git remote add heroku https://git.heroku.com/<your-app-name>.git    
     ```
 2. Set the `$KEYSTORE_PASSWORD` config variable used in the `Procfile`. The value should be the password you
 used to create the `apple-pay.p12` file.
