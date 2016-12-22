@@ -7,7 +7,7 @@ Use it as a step by step guide to get started with Apple Pay on the web.
 to the [webadmin tool](https://pilot.datatrans.biz/)
 2. [An apple developer account](https://developer.apple.com/account/)
 3. Java installed on your local dev system
-4. `openssl` insalled on your local dev system
+4. `openssl` installed on your local dev system
 5. A domain. For example my-weird-shop.com
 6. An Apple Pay ready iPhone or a late 2016 MacBook Pro with Touchbar
 7. A credit card from an issuer (bank) supporting ApplePay
