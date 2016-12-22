@@ -20,7 +20,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
 3. Here you see 3 'boxes'
    1. Payment Processing Certificate
     
-        This is the certificate you need upload in the Datatrans [webadmin tool](https://pilot.datatrans.biz/). 
+        This is the certificate you need to upload in the Datatrans [webadmin tool](https://pilot.datatrans.biz/). 
         But first a CSR needs to be created. For this (also in the webadmin tool), navigate to 'UPP Administration' > 'UPP Security' >
         'Apple Pay key and certificate' fill in the details for 'Certificate subject DN' 
         and click the 'Generate new key' button. Now download the CSR and use it to create the payment processing
@@ -39,17 +39,23 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       This is the certificate you need to make a connection from your server to apple to do the merchant validation.
       **Do not** re-use the CSR from above here. Instead, create your own:
       
-      ```openssl req -sha256 -nodes -newkey rsa:2048 -keyout applepaytls.key -out applepaytls.csr```
+      ```zsh
+      $ openssl req -sha256 -nodes -newkey rsa:2048 -keyout applepaytls.key -out applepaytls.csr
+      ```
       
       Use `applepaytls.csr` to create your merchant identity certificate. 
       
-      Convert the downloaded (`certFromApple.cer`) merchant identity certificate to `.pem`
+      Convert the downloaded merchant identity certificate to `.pem`
       
-      ```openssl x509 -inform der -in certFromApple.cer -out merchant_identity_cert.pem```
+      ```zsh
+      $ openssl x509 -inform der -in certFromApple.cer -out merchant_identity_cert.pem
+      ```
       
       And finally create a `.p12` file
       
-      ```openssl pkcs12 -export -in ./merchant_identity_cert.pem -inkey ./applepaytls.key -out ./apple-pay.p12 -name "Datatrans Showcase ApplePay key" ```
+      ```zsh
+      $ openssl pkcs12 -export -in ./merchant_identity_cert.pem -inkey ./applepaytls.key -out ./apple-pay.p12 -name "Datatrans Showcase ApplePay key"
+      ```
             
 ## Prepare the sample application
 1. Put the `apple-pay.p12` file into folder src/main/resources/tls`
@@ -64,14 +70,30 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     `ch.datatrans.applepay.displayName`: Will be shown on the touchbar during a payment.
     
 ## Deploy to Heroku
-1. Set the `$KEYSTORE_PASSWORD` config variable used in the `Procfile`. The value should be the password you
+1. Clone this repository and create the application
+    ```zsh
+    $ git clone git@github.com:datatrans/apple-pay-web-sample.git
+    $ cd apple-pay-web-sample
+    $ heroku create <your-app-name>
+    $ git remote add heroku https://git.heroku.com/<your-app-name>.git
+    
+
+    
+    
+    ```
+2. Set the `$KEYSTORE_PASSWORD` config variable used in the `Procfile`. The value should be the password you
 used to create the `apple-pay.p12` file.
     ```zsh
-    heroku config:set KEYSTORE_PASSWORD=password
+    $ heroku config:set KEYSTORE_PASSWORD=password
     
     ```
     
-2. 
+3. Push to Heroku and launch the instance
+   ```zsh
+   $ git push heroku master
+   $ heroku ps:scale web=1
+   $ heroku open
+   ```
     
 
 
