@@ -58,7 +58,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       ```
             
 ## Prepare the sample application
-1. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
+1. Put the `apple-pay.p12` file into folder src/main/resources/tls`
 2. Adjust the `application.properties` in `src/main/resources`
 
    `ch.datatrans.applepay.merchantIdentifier`: The merchant identifier you used to create your merchantId
@@ -68,6 +68,10 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     the verification file) or the Heroku domain name assigned to you (see Deployment section). 
     
     `ch.datatrans.applepay.displayName`: Will be shown on the touchbar during a payment.
+    
+    ![Touchbar](doc/touchbar.png "Touchbar")
+        
+
     
 ## Deploy to Heroku
 1. Clone this repository and create the application
