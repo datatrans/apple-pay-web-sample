@@ -58,7 +58,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       ```
             
 ## Prepare the sample application
-1. Put the `apple-pay.p12` file into folder src/main/resources/tls`
+1. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
 2. Adjust the `application.properties` in `src/main/resources`
 
    `ch.datatrans.applepay.merchantIdentifier`: The merchant identifier you used to create your merchantId
@@ -71,20 +71,24 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     
 ## Deploy to Heroku
 1. Clone this repository and create the application
+    
     ```zsh
     $ git clone git@github.com:datatrans/apple-pay-web-sample.git
     $ cd apple-pay-web-sample
     $ heroku create <your-app-name>
     $ git remote add heroku https://git.heroku.com/<your-app-name>.git    
     ```
+    
 2. Set the `$KEYSTORE_PASSWORD` config variable used in the `Procfile`. The value should be the password you
 used to create the `apple-pay.p12` file.
+    
     ```zsh
     $ heroku config:set KEYSTORE_PASSWORD=password
     
     ```
     
 3. Push to Heroku and launch the instance
+   
    ```zsh
    $ git push heroku master
    $ heroku ps:scale web=1
