@@ -23,5 +23,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-*.p12
+# Apple
+*.DS_Store
 
