@@ -2,6 +2,10 @@
 This small Spring Boot App demonstrates a basic Apple Pay Web integration with Datatrans.
 Use it as a step by step guide to get started with Apple Pay on the web.
 
+Demo: [https://applepay-datatrans-sample.herokuapp.com](https://applepay-datatrans-sample.herokuapp.com)
+
+![Demo](doc/applepay-button.png "Demo App")
+
 ## What you need
 1. [A Datatrans test merchantId](https://www.datatrans.ch/en/technics/test-account) and access
 to the [webadmin tool](https://pilot.datatrans.biz/)
@@ -58,7 +62,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       ```
             
 ## Prepare the sample application
-1. Put the `apple-pay.p12` file into folder src/main/resources/tls`
+1. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
 2. Adjust the `application.properties` in `src/main/resources`
 
    `ch.datatrans.applepay.merchantIdentifier`: The merchant identifier you used to create your merchantId
