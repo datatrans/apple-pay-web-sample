@@ -125,7 +125,7 @@ whith real cards will be declined on the Datatrans Test system (https://pilot.da
 Datatrans has the follwing testing logic in place:
 - If a valid Apple Pay token is sent and the amount is < 100 (equals 1USD or 1CHF) we do the following replacements:
     
-    cardno=4242 4242 4242 4242 
+    cardno=4242 4242 4242 4242  
     expm=12      
     expy=18
     
