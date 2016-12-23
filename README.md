@@ -23,6 +23,8 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
 2. Click on the 'Edit' button of the newly created merchantId
 3. Here you see 3 'boxes'
    1. Payment Processing Certificate
+   
+        ![Payment processing certificate](doc/payment-processing-cert.png "Payment processing certificate")
     
         This is the certificate you need to upload in the Datatrans [webadmin tool](https://pilot.datatrans.biz/). 
         But first a CSR needs to be created. For this (also in the webadmin tool), navigate to 'UPP Administration' > 'UPP Security' >
@@ -35,10 +37,14 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
         
    2. Merchant Domains
    
+      ![Merchant domains](doc/merchant-domains.png "Merchant domains")
+      
       Apple needs to validate your shop domain. Add your fully qualified domain name there and upload the 
        verification file as instructed. You should get your domain validated pretty easily.
          
    3. Merchant Identity Certificate
+      
+      ![Merchant identity certificate](doc/merchant-identity-cert.png "Merchant identity certificate")
       
       This is the certificate you need to make a connection from your server to apple to do the merchant validation.
       **Do not** re-use the CSR from above here. Instead, create your own:
@@ -74,8 +80,6 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     `ch.datatrans.applepay.displayName`: Will be shown on the touchbar during a payment.
     
     ![Touchbar](doc/touchbar.png "Touchbar")
-        
-
     
 ## Deploy to Heroku
 1. Clone this repository and create the application
