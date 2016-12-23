@@ -76,7 +76,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     ```zsh
     $ git clone git@github.com:datatrans/apple-pay-web-sample.git
     $ cd apple-pay-web-sample`
-    ``
+    ```
     
 2. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
 3. Adjust the `application.properties` in `src/main/resources`
