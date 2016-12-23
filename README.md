@@ -12,7 +12,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
 2. [An apple developer account](https://developer.apple.com/account/)
 3. Java installed on your local dev system
 4. `openssl` installed on your local dev system
-5. A domain. For example my-weird-shop.com
+5. A domain. For example my-shop.com (or the one Heroku assigns to you)
 6. An Apple Pay ready iPhone or a late 2016 MacBook Pro with Touchbar
 7. A credit card from an issuer (bank) supporting ApplePay
 8. A [Heroku](https://www.heroku.com) account if you want to deploy this sample application
@@ -40,7 +40,11 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       ![Merchant domains](doc/merchant-domains.png "Merchant domains")
       
       Apple needs to validate your shop domain. Add your fully qualified domain name there and upload the 
-       verification file as instructed. You should get your domain validated pretty easily.
+       verification file as instructed. You should get your domain validated pretty easily. You can also do this
+       step later. During the deployment of the app to Heroku, you will be assigned a Domain name. This one can
+       then be used for validation. For example:
+       
+       ![Domain validated](doc/domain-validated.png "Domain validated")
          
    3. Merchant Identity Certificate
       
