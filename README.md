@@ -135,6 +135,7 @@ Datatrans has the follwing testing logic in place:
     expm=12  
     expy=18  
     amount=100  
+    currency=CHF
     
 ## Remarks
 - Please **NEVER EVER** use this code in any form in production. 
