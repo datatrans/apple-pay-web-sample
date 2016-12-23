@@ -71,14 +71,15 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       $ openssl pkcs12 -export -in ./merchant_identity_cert.pem -inkey ./applepaytls.key -out ./apple-pay.p12 -name "Datatrans Showcase ApplePay key"
       ```
             
-## Prepare the sample application`
+## Prepare the sample application
 1. Clone this repo
     ```zsh
     $ git clone git@github.com:datatrans/apple-pay-web-sample.git
-    $ cd apple-pay-web-sample``
+    $ cd apple-pay-web-sample`
+    ``
     
-1. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
-2. Adjust the `application.properties` in `src/main/resources`
+2. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
+3. Adjust the `application.properties` in `src/main/resources`
 
    `ch.datatrans.applepay.merchantIdentifier`: The merchant identifier you used to create your merchantId
    on developer.apple.com
