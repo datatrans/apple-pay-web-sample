@@ -27,8 +27,8 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
         ![Payment processing certificate](doc/payment-processing-cert.png "Payment processing certificate")
     
         This is the certificate you need to upload in the Datatrans [webadmin tool](https://pilot.datatrans.biz/). 
-        But first a CSR needs to be created. For this (also in the webadmin tool), navigate to 'UPP Administration' > 'UPP Security' >
-        'Apple Pay key and certificate' fill in the details for 'Certificate subject DN' 
+        But first a CSR needs to be created. For this (also in the webadmin tool), navigate to *'UPP Administration' > 'UPP Security' >
+        'Apple Pay key and certificate'* fill in the details for 'Certificate subject DN' 
         and click the 'Generate new key' button. Now download the CSR and use it to create the payment processing
         certificate. Finally, again in the webadmin tool, upload & import the certificate.
         
@@ -107,6 +107,12 @@ used to create the `apple-pay.p12` file.
    $ heroku open
    ```
     
+## Remarks
+- Please **NEVER EVER** use this code in any form in production. 
+- The client side code in `src/main/resources/static` is a 1:1 copy from the
+[Apple Pay Web Emporium](https://developer.apple.com/library/content/samplecode/EmporiumWeb/) with some
+small adjustments to make the actual authorization with Datatrans.
+- If you have questions please raise an issues and add the label "question".
 
 
         
