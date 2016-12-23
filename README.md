@@ -118,6 +118,23 @@ used to create the `apple-pay.p12` file.
    $ heroku ps:scale web=1
    $ heroku open
    ```
+   
+## Testing
+On your iPhone / MacBook its the easiest if you just configure a real Apple Pay enabled credit card. Authorizations
+whith real cards will be declined on the Datatrans Test system (https://pilot.datatrans.biz) anyway. In order to get some successful transactions
+Datatrans has the follwing testing logic in place:
+- If a valid Apple Pay token is sent and the amount is < 100 (equals 1USD or 1CHF) we do the following replacements:
+    
+    cardno=4242 4242 4242 4242 
+    expm=12      
+    expy=18
+    
+- If an empty token is sent, Datatrans uses a test token with the following values:
+
+    cardno=4242 4242 4242 4242  
+    expm=12  
+    expy=18  
+    amount=100  
     
 ## Remarks
 - Please **NEVER EVER** use this code in any form in production. 
