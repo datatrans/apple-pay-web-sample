@@ -40,7 +40,8 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       ![Merchant domains](doc/merchant-domains.png "Merchant domains")
       
       Apple needs to validate your shop domain. Add your fully qualified domain name there and upload the 
-       verification file as instructed. You should get your domain validated pretty easily. You can also do this
+       verification file as instructed (or check the 'Deploy to Heroku' section if you want to use the domain
+        assigned to you by Heroku). You should get your domain validated pretty easily. You can also do this
        step later. During the deployment of the app to Heroku, you will be assigned a Domain name. This one can
        then be used for validation. For example:
        
@@ -75,7 +76,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
 1. Clone this repo
     ```zsh
     $ git clone git@github.com:datatrans/apple-pay-web-sample.git
-    $ cd apple-pay-web-sample`
+    $ cd apple-pay-web-sample
     ```
     
 2. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
@@ -85,7 +86,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
    on developer.apple.com
    
     `ch.datatrans.applepay.domainName`: The domain you used on developer.apple.com (where you uploaded
-    the verification file) or the Heroku domain name assigned to you (see Deployment section). 
+    the verification file) or the Heroku domain name assigned to you (see the 'Deploy to Heroku' section). 
     
     `ch.datatrans.applepay.displayName`: Will be shown on the touchbar during a payment.
     
@@ -96,10 +97,13 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     
     ```zsh   
     $ heroku create <your-app-name>
-    $ git remote add heroku https://git.heroku.com/<your-app-name>.git    
     ```
     
-2. Set the `$KEYSTORE_PASSWORD` config variable used in the `Procfile`. The value should be the password you
+2. Make sure to validate the domain assigned to you by Heroku on developer.apple.com. For this put a folder
+with the name `.well-know` to `src/main/resources/static` 
+and put the `apple-developer-merchantid-domain-association` file (downloaded from Apple) there. 
+
+3. Set the `$KEYSTORE_PASSWORD` config variable used in the `Procfile`. The value should be the password you
 used to create the `apple-pay.p12` file.
     
     ```zsh
@@ -107,7 +111,7 @@ used to create the `apple-pay.p12` file.
     
     ```
     
-3. Push to Heroku and launch the instance
+4. Push to Heroku and launch the instance
    
    ```zsh
    $ git push heroku master
