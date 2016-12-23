@@ -71,7 +71,12 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       $ openssl pkcs12 -export -in ./merchant_identity_cert.pem -inkey ./applepaytls.key -out ./apple-pay.p12 -name "Datatrans Showcase ApplePay key"
       ```
             
-## Prepare the sample application
+## Prepare the sample application`
+1. Clone this repo
+    ```zsh
+    $ git clone git@github.com:datatrans/apple-pay-web-sample.git
+    $ cd apple-pay-web-sample``
+    
 1. Put the `apple-pay.p12` file into folder `src/main/resources/tls`
 2. Adjust the `application.properties` in `src/main/resources`
 
@@ -86,11 +91,9 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     ![Touchbar](doc/touchbar.png "Touchbar")
     
 ## Deploy to Heroku
-1. Clone this repository and create the application
+1. Create the application
     
-    ```zsh
-    $ git clone git@github.com:datatrans/apple-pay-web-sample.git
-    $ cd apple-pay-web-sample
+    ```zsh   
     $ heroku create <your-app-name>
     $ git remote add heroku https://git.heroku.com/<your-app-name>.git    
     ```
