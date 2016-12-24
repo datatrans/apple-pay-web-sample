@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping("/api")
-@CrossOrigin(origins = "https://www.datatrans.ch")
+@CrossOrigin(origins = "https://www.datatrans.ch") // remove this or adjust it to your needs
 public class ApplePayController {
 
     private static final Logger logger = LoggerFactory.getLogger(ApplePayController.class);
@@ -65,6 +65,7 @@ public class ApplePayController {
     public ResponseEntity<Void> saveOrder(@RequestBody String saveOrderRequest) {
         logger.info("/api/order/save called");
         logger.info(saveOrderRequest);
+        // handle the Datatrans POST URL call here and save the needed data to your DB
         return ResponseEntity.ok().build();
     }
 

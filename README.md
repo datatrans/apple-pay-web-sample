@@ -90,6 +90,11 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     
     `ch.datatrans.applepay.displayName`: Will be shown on the touchbar during a payment.
     
+    `ch.datatrans.merchantId`: Your Datatrans merchantId
+    
+    `ch.datatrans.sign`: The sign configured in the webadmin tool. Note: this sample currently
+    only supports security level 1 (=static sign).
+    
     ![Touchbar](doc/touchbar.png "Touchbar")
     
 ## Deploy to Heroku
