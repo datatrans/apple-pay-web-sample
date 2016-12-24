@@ -121,8 +121,9 @@ used to create the `apple-pay.p12` file.
    
 ## Testing
 On your iPhone / MacBook its the easiest if you just configure a real Apple Pay enabled credit card. Authorizations
-whith real cards will be declined on the Datatrans Test system (https://pilot.datatrans.biz) anyway. In order to get some successful transactions
-Datatrans has the follwing testing logic in place:
+whith real cards will be declined on the Datatrans test system (https://pilot.datatrans.biz). So don't worry,
+your card will not be charged. In order to get some successful transactions Datatrans has the following logic in place 
+(only on the test system obviously):
 - If a valid Apple Pay token is sent and the amount is < 100 (equals 1USD or 1CHF) we do the following replacements:
     
     cardno=4242 4242 4242 4242  

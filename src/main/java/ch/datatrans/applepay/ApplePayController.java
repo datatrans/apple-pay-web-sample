@@ -60,4 +60,12 @@ public class ApplePayController {
         return datatransClient.authorize(authorizeRequest.getPaymentData().toString());
     }
 
+    @PostMapping("/order/save")
+    @ResponseBody
+    public ResponseEntity<Void> saveOrder(@RequestBody String saveOrderRequest) {
+        logger.info("/api/order/save called");
+        logger.info(saveOrderRequest);
+        return ResponseEntity.ok().build();
+    }
+
 }
