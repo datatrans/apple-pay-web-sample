@@ -79,7 +79,7 @@ function applePayButtonClicked() {
 
     session.oncancel = (event) => {
         console.log("oncancel");
-        console.log("event");
+        console.log(event);
     };
 
     /**
