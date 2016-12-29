@@ -77,13 +77,9 @@ function applePayButtonClicked() {
     const session = new ApplePaySession(1, paymentRequest);
     console.log("session object created")
 
-    /**
-     * Merchant Validation
-     * We call our merchant session endpoint, passing the URL to use
-     */
     session.oncancel = (event) => {
-        // TODO - show some error text
         console.log("oncancel");
+        console.log("event");
     };
 
     /**
