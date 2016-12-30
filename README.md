@@ -125,7 +125,8 @@ used to create the `apple-pay.p12` file.
    $ heroku open
    ```
    
-## Testing
+## Appendix
+### Testing
 On your iPhone / MacBook its the easiest if you just configure a real Apple Pay enabled credit card. Authorizations
 whith real cards will be declined on the Datatrans test system (https://pilot.datatrans.biz). So don't worry,
 your card will not be charged. In order to get some successful transactions Datatrans has the following logic in place 
@@ -144,7 +145,91 @@ your card will not be charged. In order to get some successful transactions Data
     amount=100  
     currency=CHF
     
-## Remarks
+### Authorisation with Datatrans
+Check out `src/main/java/ch/datatrans/applepay/client/DatatransClient.java` to see how the authorisation is done.
+
+Sample request:
+
+```XML
+<?xml version="1.0" encoding="UTF-8" ?>
+<authorizationService version="1">
+  <body merchantId="$merchantId">
+    <transaction refno="$refno">
+      <request>
+        <applePayToken><![CDATA[$token]]></applePayToken>
+        <reqtype>NOA</reqtype>
+        <transtype>05</transtype>
+        <sign>$sign</sign>
+      </request>
+    </transaction>
+  </body>
+</authorizationService>
+```
+
+Sample response:
+
+```XML
+<?xml version="1.0" encoding="UTF-8" ?>
+<authorizationService version="1">
+  <body merchantId="$merchantId" status="accepted">
+    <transaction refno="$refno" trxStatus="response">
+      <request>
+        <applePayToken><![CDATA[$token]]></applePayToken>
+        <reqtype>NOA</reqtype>
+        <transtype>05</transtype>
+        <sign>$sign</sign>
+      </request>
+      <response>
+        <responseCode>01</responseCode>
+        <responseMessage>Authorized</responseMessage>
+        <uppTransactionId>160823101329060450</uppTransactionId>
+        <authorizationCode>538050451</authorizationCode>
+        <acqAuthorizationCode>101538</acqAuthorizationCode>
+        <aliasCC>70119122433810042</aliasCC>
+        <expy>18</expy>
+        <expm>12</expm>
+      </response>
+    </transaction>
+  </body>
+</authorizationService>
+```
+
+A successful call will return `<body>`’s attribute `status="accepted"` and `<transaction>`’s `trxStatus="response"` as 
+well as a new `<response>` element containing the responseCode. A responseCode equal to "01" or "02" indicates
+an authorized transaction. Elements aliasCC, expy and expm will be returned only if the merchant uses credit card aliases.
+
+Sample POST URL payload:
+
+```XML
+<uppTransactionService version="1">
+  <body merchantId="1100006317">
+    <transaction refno="1483106095261" status="success">
+      <uppTransactionId>161230145456008801</uppTransactionId>
+      <amount>99</amount>
+      <currency>USD</currency>
+      <pmethod>VIS</pmethod>
+      <success>
+        <authorizationCode>456038802</authorizationCode>
+        <acqAuthorizationCode>145456</acqAuthorizationCode>
+        <responseCode>01</responseCode>
+      </success>
+      <userParameters>
+        <parameter name="maskedCC">424242xxxxxx4242</parameter>
+        <parameter name="aliasCC">70119122433810042</parameter>
+        <parameter name="responseCode">01</parameter>
+        <parameter name="expy">18</parameter>
+        <parameter name="expm">12</parameter>
+      </userParameters>
+    </transaction>
+  </body>
+</uppTransactionService>
+```
+
+The maskedCC parameter returned here **DOES NOT** represent the actual cardnumber of the cardholder.
+With Apple Pay a virtual cardnumber is used. Try to avoid displaying this maskedCC somewhere in
+a users profile for example.
+    
+### Remarks
 - Please **NEVER EVER** use this code in any form in production. 
 - The client side code in `src/main/resources/static` is a 1:1 copy from the
 [Apple Pay Web Emporium](https://developer.apple.com/library/content/samplecode/EmporiumWeb/) with some
