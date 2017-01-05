@@ -145,6 +145,42 @@ your card will not be charged. In order to get some successful transactions Data
     amount=100  
     currency=CHF
     
+### Adjusting the Apple Pay payment sheet for recurring
+
+You might have a use case were you want to do some recurring transactions. Therefore it would make
+sense to adjust the Apple Pay payment sheet accordingly. Unfortunately not every part on the payment
+sheet can be changed.
+
+![Payment sheet](doc/registration-pending-line-item.png "Payment sheet")
+
+1. This is a free text label of a line item indicating that this is 'only' a registration
+2. The amount set to 0.00. In general those line items are optional.
+
+   ```JavaScript
+   lineItems: [
+     {
+       label: 'Registration only',
+       amount: '0.00'
+     }
+   ]
+   ```
+3. The word 'PAY' is static. 'DATATRANS' (indicating the merchant name) is again free text.
+4. To get the 'AMOUNT PENDING' text the total item needs to be like:
+
+   ```JavaScript
+   total: {
+     label: 'Datatrans',
+     amount: '0.01',
+     type: 'pending'
+   }
+   ```
+   
+   As you can see Apple Pay does not allow a total amount of 0.0. Therefore please use an amount > 0.
+   
+5. 'Pay with Touch ID' cannot be changed and is a hardcoded label.
+
+Please get in concat with Datatrans if you want to do recurring payments with Apple Pay.   
+    
 ### Authorisation with Datatrans
 Check out `src/main/java/ch/datatrans/applepay/client/DatatransClient.java` to see how the authorisation is done.
 
@@ -182,7 +218,7 @@ Sample response:
       <response>
         <responseCode>01</responseCode>
         <responseMessage>Authorized</responseMessage>
-        <uppTransactionId>160823101329060450</uppTransactionId>
+        <uppTransactionId>160823101329060450</uppTrasactionId>
         <authorizationCode>538050451</authorizationCode>
         <acqAuthorizationCode>101538</acqAuthorizationCode>
         <aliasCC>70119122433810042</aliasCC>
