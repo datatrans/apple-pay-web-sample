@@ -58,7 +58,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       $ openssl req -sha256 -nodes -newkey rsa:2048 -keyout applepaytls.key -out applepaytls.csr
       ```
       
-      Use `applepaytls.csr` to create your merchant identity certificate. 
+      Use `applepaytls.csr` to create your merchant identity certificate on developer.apple.com.
       
       Convert the downloaded merchant identity certificate to `.pem`
       
@@ -69,7 +69,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
       And finally create a `.p12` file
       
       ```zsh
-      $ openssl pkcs12 -export -in ./merchant_identity_cert.pem -inkey ./applepaytls.key -out ./apple-pay.p12 -name "Datatrans Showcase ApplePay key"
+      $ openssl pkcs12 -export -in merchant_identity_cert.pem -inkey applepaytls.key -out apple-pay.p12 -name "Datatrans Showcase ApplePay key"
       ```
             
 ## Prepare the sample application
@@ -179,7 +179,9 @@ sheet can be changed.
    
 5. 'Pay with Touch ID' cannot be changed and is a hardcoded label.
 
-Please get in concat with Datatrans if you want to do recurring payments with Apple Pay.   
+Please get in concat with Datatrans if you want to do recurring payments with Apple Pay. Also please
+  note that on a late 2016 Mac Book Pro the Touchbar will show an amount of 0.01. There is currently
+  no way of hidding the amount when using the Touchbar.
     
 ### Authorisation with Datatrans
 Check out `src/main/java/ch/datatrans/applepay/client/DatatransClient.java` to see how the authorisation is done.
