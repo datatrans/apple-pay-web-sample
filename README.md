@@ -179,7 +179,7 @@ sheet can be changed.
    
 5. 'Pay with Touch ID' cannot be changed and is a hardcoded label.
 
-Please get in concat with Datatrans if you want to do recurring payments with Apple Pay. Also please
+Please get in contact with Datatrans if you want to do recurring payments with Apple Pay. Also please
   note that on a late 2016 Mac Book Pro the Touchbar will show an amount of 0.01. There is currently
   no way of hidding the amount when using the Touchbar.
     
