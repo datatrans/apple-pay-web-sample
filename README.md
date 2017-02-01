@@ -28,8 +28,7 @@ to the [webadmin tool](https://pilot.datatrans.biz/)
     
         This is the certificate you need to upload in the Datatrans [webadmin tool](https://pilot.datatrans.biz/). 
         But first a CSR needs to be created. For this (also in the webadmin tool), navigate to *'UPP Administration' > 'UPP Security' >
-        'Apple Pay key and certificate'* fill in the details for 'Certificate subject DN' 
-        and click the 'Generate new key' button. Now download the CSR and use it to create the payment processing
+        'Apple Pay key and certificate'* and click the 'Download CSR file' button. Use the downloaded CSR to create a payment processing
         certificate. Finally, again in the webadmin tool, upload & import the certificate.
         
         Side note: Once you completed this step you should be ready to perform Apple Pay (not Web) transactions
