@@ -126,11 +126,11 @@ used to create the `apple-pay.p12` file.
    
 ## Appendix
 ### Testing
-On your iPhone / MacBook its the easiest if you just configure a real Apple Pay enabled credit card. Authorizations
-whith real cards will be declined on the Datatrans test system (https://admin.sandbox.datatrans.com/). So don't worry,
+On your iPhone / MacBook it's the easiest if you just configure a real Apple Pay enabled credit card. Authorizations
+with real cards will be declined on the Datatrans test system (https://admin.sandbox.datatrans.com/). So don't worry,
 your card will not be charged. In order to get some successful transactions Datatrans has the following logic in place 
 (only on the test system obviously):
-- If a valid Apple Pay token is sent and the amount is < 100 (equals 1USD or 1CHF) we do the following replacements:
+- If a valid Apple Pay token is sent and the amount is < 500 (equals 5 USD or 5 CHF) we do the following replacements:
     
     cardno=4242 4242 4242 4242  
     expm=12      
@@ -180,7 +180,7 @@ sheet can be changed.
 
 Please get in contact with Datatrans if you want to do recurring payments with Apple Pay. Also please
   note that on a late 2016 Mac Book Pro the Touchbar will show an amount of 0.01. There is currently
-  no way of hidding the amount when using the Touchbar.
+  no way of hiding the amount when using the Touchbar.
     
 ### Authorisation with Datatrans
 Check out `src/main/java/ch/datatrans/applepay/client/DatatransClient.java` to see how the authorisation is done.
@@ -264,7 +264,7 @@ Sample POST URL payload:
 
 The maskedCC parameter returned here **DOES NOT** represent the actual cardnumber of the cardholder.
 With Apple Pay a virtual cardnumber is used. Try to avoid displaying this maskedCC somewhere in
-a users profile for example.
+a user's profile for example.
     
 ### Remarks
 - Please **NEVER EVER** use this code in any form in production. 
