@@ -134,13 +134,13 @@ your card will not be charged. In order to get some successful transactions Data
     
     cardno=4242 4242 4242 4242  
     expm=12      
-    expy=18
+    expy=21
     
 - If an empty token is sent, Datatrans uses a test token with the following values:
 
     cardno=4242 4242 4242 4242  
     expm=12  
-    expy=18  
+    expy=21  
     amount=100  
     currency=CHF
     
