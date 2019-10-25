@@ -239,26 +239,28 @@ Sample POST URL payload:
 
 ```XML
 <uppTransactionService version="1">
-  <body merchantId="1100006317">
-    <transaction refno="1483106095261" status="success">
-      <uppTransactionId>161230145456008801</uppTransactionId>
-      <amount>99</amount>
-      <currency>USD</currency>
-      <pmethod>VIS</pmethod>
-      <success>
-        <authorizationCode>456038802</authorizationCode>
-        <acqAuthorizationCode>145456</acqAuthorizationCode>
-        <responseCode>01</responseCode>
-      </success>
-      <userParameters>
-        <parameter name="maskedCC">424242xxxxxx4242</parameter>
-        <parameter name="aliasCC">70119122433810042</parameter>
-        <parameter name="responseCode">01</parameter>
-        <parameter name="expy">18</parameter>
-        <parameter name="expm">12</parameter>
-      </userParameters>
-    </transaction>
-  </body>
+    <body merchantId="1100006389">
+        <transaction refno="1571989559867" status="success">
+            <uppTransactionId>191025094600271000</uppTransactionId>
+            <amount>99</amount>
+            <currency>USD</currency>
+            <pmethod>VIS</pmethod>
+            <sourcepmethod>APL</sourcepmethod>
+            <reqtype>NOA</reqtype>
+            <success>
+                <authorizationCode>601081003</authorizationCode>
+                <acqAuthorizationCode>094601</acqAuthorizationCode>
+                <responseCode>01</responseCode>
+            </success>
+            <userParameters>
+                <parameter name="maskedCC">424242xxxxxx4242</parameter>
+                <parameter name="aliasCC">70119122433810042</parameter>
+                <parameter name="responseCode">01</parameter>
+                <parameter name="expy">21</parameter>
+                <parameter name="expm">12</parameter>
+            </userParameters>
+        </transaction>
+    </body>
 </uppTransactionService>
 ```
 
