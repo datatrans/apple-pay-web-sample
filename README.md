@@ -273,7 +273,7 @@ a user's profile for example.
 - The client side code in `src/main/resources/static` is a 1:1 copy from the
 [Apple Pay Web Emporium](https://developer.apple.com/library/content/samplecode/EmporiumWeb/) with some
 small adjustments to make the actual authorization with Datatrans.
-- If you have questions please raise an issues and add the label "question".
+- If you have questions please raise an issue and add the label "question".
 
 
         
