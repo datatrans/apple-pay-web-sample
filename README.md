@@ -7,32 +7,32 @@ Demo: [https://applepay-datatrans-sample.herokuapp.com](https://applepay-datatra
 ![Demo](doc/applepay-button.png "Demo App")
 
 ## What you need
-1. [A Datatrans test merchantId](https://www.datatrans.ch/en/technics/test-account) and access
-to the [webadmin tool](https://pilot.datatrans.biz/)
-2. [An apple developer account](https://developer.apple.com/account/)
+1. A [Datatrans test merchantId](https://testaccount.datatrans.com/testaccounts) and access
+to the [webadmin tool](http://admin.sandbox.datatrans.com)
+2. An [apple developer account](https://developer.apple.com/account/) with an active membership
 3. Java installed on your local dev system
 4. `openssl` installed on your local dev system
-5. A domain. For example my-shop.com (or the one Heroku assigns to you)
-6. An Apple Pay ready iPhone or a late 2016 MacBook Pro with Touchbar
-7. A credit card from an issuer (bank) supporting ApplePay
+5. A domain (for example my-shop.com or the one Heroku assigns to you)
+6. An iPhone or MacBook with Touchbar supporting Apple Pay
+7. A credit card from an issuer (bank) supporting Apple Pay
 8. A [Heroku](https://www.heroku.com) account if you want to deploy this sample application
 9. Experience with the ['Getting Started on Heroku with Java'](https://devcenter.heroku.com/articles/getting-started-with-java#define-config-vars) Guide
 
 ## Initial Apple Pay Web setup
-1. [Create a new merchantId](https://developer.apple.com/account/ios/identifier/merchant/create) on developer.apple.com
-2. Click on the 'Edit' button of the newly created merchantId
+1. [Create a new identifier (Merchant ID)](https://developer.apple.com/account/resources/identifiers/add/bundleId) at developer.apple.com
+2. Click on the 'Edit' button of the newly created Merchant ID
 3. Here you see 3 'boxes'
    1. Payment Processing Certificate
    
         ![Payment processing certificate](doc/payment-processing-cert.png "Payment processing certificate")
     
-        This is the certificate you need to upload in the Datatrans [webadmin tool](https://pilot.datatrans.biz/). 
+        This is the certificate you need to upload in the Datatrans [webadmin tool](http://admin.sandbox.datatrans.com). 
         But first a CSR needs to be created. For this (also in the webadmin tool), navigate to *'UPP Administration' > 'UPP Security' >
         'Apple Pay key and certificate'* and click the 'Download CSR file' button. Use the downloaded CSR to create a payment processing
         certificate. Finally, again in the webadmin tool, upload & import the certificate.
         
         Side note: Once you completed this step you should be ready to perform Apple Pay (not Web) transactions
-        with the [Datatrans iOS Mobile Library](https://pilot.datatrans.biz/showcase/doc/iOS_Developers_Manual.pdf)
+        with the [Datatrans iOS Mobile Library](https://admin.sandbox.datatrans.com/showcase/doc/iOS_Developers_Manual.pdf)
         
    2. Merchant Domains
    
@@ -127,10 +127,10 @@ used to create the `apple-pay.p12` file.
 ## Appendix
 ### Testing
 On your iPhone / MacBook it's the easiest if you just configure a real Apple Pay enabled credit card. Authorizations
-with real cards will be declined on the Datatrans test system (https://admin.sandbox.datatrans.com/). So don't worry,
-your card will not be charged. In order to get some successful transactions Datatrans has the following logic in place 
+with real cards will be declined on the [Datatrans test system](https://admin.sandbox.datatrans.com/). So don't worry,
+your card will not be charged. In order to get some successful transactions, Datatrans has the following logic in place 
 (only on the test system obviously):
-- If a valid Apple Pay token is sent and the amount is < 500 (equals 5 USD or 5 CHF) we do the following replacements:
+- If a valid Apple Pay token is sent and the amount is < 500 (500 equals 5.00 USD or 5.00 CHF) we do the following replacements:
     
     cardno=4242 4242 4242 4242  
     expm=12      
@@ -178,8 +178,8 @@ sheet can be changed.
    
 5. 'Pay with Touch ID' cannot be changed and is a hardcoded label.
 
-Please get in contact with Datatrans if you want to do recurring payments with Apple Pay. Also please
-  note that on a late 2016 Mac Book Pro the Touchbar will show an amount of 0.01. There is currently
+Please get in touch with us if you want to do recurring payments with Apple Pay. Also please
+  note that on a late 2016 MacBook Pro the Touchbar will show an amount of 0.01. There is currently
   no way of hiding the amount when using the Touchbar.
     
 ### Authorisation with Datatrans
@@ -264,8 +264,8 @@ Sample POST URL payload:
 </uppTransactionService>
 ```
 
-The maskedCC parameter returned here **DOES NOT** represent the actual cardnumber of the cardholder.
-With Apple Pay a virtual cardnumber is used. Try to avoid displaying this maskedCC somewhere in
+The maskedCC parameter returned here **DOES NOT** represent the actual card number of the cardholder.
+With Apple Pay a virtual card number is used. Try to avoid displaying this maskedCC somewhere in
 a user's profile for example.
     
 ### Remarks
