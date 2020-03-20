@@ -1,3 +1,5 @@
+Deprecated! Use https://github.com/datatrans/apple-pay-web-sample
+
 # Apple Pay Web Sample App
 This small Spring Boot App demonstrates a basic Apple Pay Web integration with Datatrans.
 Use it as a step by step guide to get started with Apple Pay on the web.
